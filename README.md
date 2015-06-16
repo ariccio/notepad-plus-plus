@@ -19,7 +19,7 @@ There are two components that need to be built separately:
 
 Open `PowerEditor\visual.net\notepadPlus.vcproj`, and build Notepad++ [like a normal Visual Studio project](https://msdn.microsoft.com/en-us/library/7s88b19e.aspx).
 
-## To build SciLexer.dll with boost:
+## To build `SciLexer.dll` with boost:
 
 From version 6.0, SciLexer.dll comes with release contains boost's PCRE (Perl Compatible Regular Expressions) feature. [`C++11`'s regex](http://en.cppreference.com/w/cpp/regex) is **not** PCRE, thus [Boost](http://www.boost.org/) is needed to compile Scintilla.
 Here are the instructions to build SciLexer.dll for Notepad++:
@@ -28,7 +28,7 @@ Here are the instructions to build SciLexer.dll for Notepad++:
  3. Go in `scintilla\win32\` then run `nmake -f scintilla.mak`
 
 
-## To build SciLexer.dll *without* boost:
+## To build `SciLexer.dll` *without* boost:
 
 You can build SciLexer.dll without Boost, ie. with its default POSIX regular expression support instead boost's PCRE one. This is useful if you would like to debug Notepad++, but don't have boost.
 
