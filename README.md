@@ -3,7 +3,10 @@ What is Notepad++ ?
 
 [![Join the chat at https://gitter.im/notepad-plus-plus/notepad-plus-plus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/notepad-plus-plus/notepad-plus-plus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Notepad++ is a free (free as in both "free speech" and "free beer") source code editor and Notepad replacement that supports several programming languages and natural languages. Running in the MS Windows environment, its use is governed by GPL License.
+Notepad++ is a free (free as in both "free speech" and "free beer") source code
+editor and Notepad replacement that supports several programming languages and
+natural languages. Running in the MS Windows environment, its use is governed by
+GPL License.
 
 
 To build Notepad++ from source:
@@ -13,11 +16,15 @@ There are two components that need to be built separately:
 - `notepad++.exe`: (depends on `SciLexer.dll`)
 - `SciLexer.dll` : (with nmake)
 
-You can build Notepad++ with *or* without Boost - The release build of Notepad++ is built **with** Boost.
+You can build Notepad++ with *or* without Boost - The release build of
+Notepad++ is built **with** Boost.
 
-Since `Notepad++` version 6.0, the build of `SciLexer.dll` that is distributed uses features from Boost's `Boost.Regex` library.
+Since `Notepad++` version 6.0, the build of `SciLexer.dll` that is distributed
+uses features from Boost's `Boost.Regex` library.
 
-You can build SciLexer.dll without Boost, ie. with its default POSIX regular expression support instead of boost's PCRE one. This is useful if you would like to debug Notepad++, but don't have boost.
+You can build SciLexer.dll without Boost, ie. with its default POSIX regular
+expression support instead of boost's PCRE one. This is useful if you would
+like to debug Notepad++, but don't have boost.
 
 ## To build `notepad++.exe`:
 
