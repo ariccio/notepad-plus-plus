@@ -1,27 +1,34 @@
-# What is Notepad++ ?
+What is Notepad++ ?
+===================
 
 [![Join the chat at https://gitter.im/notepad-plus-plus/notepad-plus-plus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/notepad-plus-plus/notepad-plus-plus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Notepad++ is a free (free as in both "free speech" and "free beer") source code editor and Notepad replacement that supports several programming languages and natural languages. Running in the MS Windows environment, its use is governed by GPL License.
 
 
-## To build Notepad++ from source:
-
-You can build Notepad++ with *or* without boost - The release build of Notepad++ is built **with** boost.
-
-There should be several ways to generate Notepad++ binaries, here we show you only the way with which Notepad++ official releases are generated.
+To build Notepad++ from source:
+============================================
 
 There are two components that need to be built separately:
 - `notepad++.exe`: (depends on `SciLexer.dll`)
 - `SciLexer.dll` : (with nmake)
 
+You can build Notepad++ with *or* without Boost - The release build of Notepad++ is built **with** Boost.
+
+Since `Notepad++` version 6.0, the build of `SciLexer.dll` that is distributed uses features from Boost's `Boost.Regex` library.
+
+You can build SciLexer.dll without Boost, ie. with its default POSIX regular expression support instead of boost's PCRE one. This is useful if you would like to debug Notepad++, but don't have boost.
+
 ## To build `notepad++.exe`:
 
-Open `PowerEditor\visual.net\notepadPlus.vcproj`, and build Notepad++ [like a normal Visual Studio project](https://msdn.microsoft.com/en-us/library/7s88b19e.aspx).
+ 1. Open [`PowerEditor\visual.net\notepadPlus.vcproj`](https://github.com/notepad-plus-plus/notepad-plus-plus/blob/master/PowerEditor/visual.net/notepadPlus.vcxproj)
+ 2. Build Notepad++ [like a normal Visual Studio project](https://msdn.microsoft.com/en-us/library/7s88b19e.aspx).
+
+
+
 
 ## To build `SciLexer.dll` with boost:
 
-From version 6.0, SciLexer.dll comes with release contains boost's PCRE (Perl Compatible Regular Expressions) feature. [`C++11`'s regex](http://en.cppreference.com/w/cpp/regex) is **not** PCRE, thus [Boost](http://www.boost.org/) is needed to compile Scintilla.
 Here are the instructions to build SciLexer.dll for Notepad++:
  1. Download the [Boost source code](http://sourceforge.net/projects/boost/files/boost/1.55.0/). v1.55 should be used with VS 2013. Then unzip it. In my case, `boost_1_55_0` is copied in `C:\sources\`
  2. Go to `scintilla\boostregex\` then run BuildBoost.bat with your boost path. In my case: `BuildBoost.bat C:\sources\boost_1_55_0`
@@ -30,9 +37,8 @@ Here are the instructions to build SciLexer.dll for Notepad++:
 
 ## To build `SciLexer.dll` *without* boost:
 
-You can build SciLexer.dll without Boost, ie. with its default POSIX regular expression support instead of boost's PCRE one. This is useful if you would like to debug Notepad++, but don't have boost.
 
-It will work with notepad++.exe, however some functionalities in Notepad++ may be broken.
+This will work with `notepad++.exe`, however some functionality in Notepad++ might be broken.
 
 To build SciLexer.dll without PCRE support:
  1. Open a command prompt *for building* ([a.k.a. the *Developer Command Prompt for VS2013*](https://msdn.microsoft.com/en-us/library/f2ccy3wt.aspx))
@@ -45,7 +51,7 @@ To build SciLexer.dll without PCRE support:
     - `nmake NOBOOST=1 DEBUG=1 -f scintilla.mak` (debugging build)
  4. Copy `SciLexer.dll` from `scintilla\bin\` to the same directory as `notepad++.exe`.
     - For the `Unicode Release` configuration, the output directory (where `notepad++.exe` is) is `PowerEditor\bin\`.
-    - For the `Unicode Release` configuration, the output directory (where `notepad++.exe` is) is `PowerEditor\visual.net\Unicode Debug\`.
+    - For the `Unicode Debug` configuration, the output directory (where `notepad++.exe` is) is `PowerEditor\visual.net\Unicode Debug\`.
 
 
 See the [Notepad++ official site](http://notepad-plus-plus.org/) for more information.
